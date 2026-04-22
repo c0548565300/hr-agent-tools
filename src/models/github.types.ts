@@ -1,6 +1,3 @@
-// src/types/github.types.ts
-
-
 export interface GithubProfileRaw {
     login: string;
     name: string | null;
