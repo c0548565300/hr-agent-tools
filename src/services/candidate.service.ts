@@ -12,10 +12,11 @@ export class CandidateService {
         const candidate = await CandidateModel.findOneAndUpdate(
             { githubUsername: githubUsername.toLowerCase() },
             { 
-                $set: { fullName, yearsOfExperience }, // מעדכן שם וניסיון
-                $push: { interviewNotes: interviewNote } // מוסיף את ההתרשמות החדשה למערך
+                $set: { fullName, yearsOfExperience }, 
+                $push: { interviewNotes: interviewNote } 
+                
             },
-            { new: true, upsert: true, runValidators: true }
+            { returnDocument: 'after', upsert: true, runValidators: true }
         );
 
         return candidate;
