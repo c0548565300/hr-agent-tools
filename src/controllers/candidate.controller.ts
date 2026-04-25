@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
-import { CandidateService } from '../services/candidate.service.js';
-
+import { saveInterviewSummary } from '../services/candidate.service.js';
 export class CandidateController {
 
     public static async saveCandidateProfile(req: Request, res: Response): Promise<void> {
         try {
-            // חילוץ הנתונים שהגיעו מהסוכנת הקולית בסוף הראיון
+           
             const { githubUsername, fullName, yearsOfExperience, interviewNote } = req.body;
 
-            // שמירה ישירה ב-DB
-            const savedCandidate = await CandidateService.saveInterviewSummary(
+            const savedCandidate = await saveInterviewSummary(
                 githubUsername,
                 fullName,
                 yearsOfExperience,

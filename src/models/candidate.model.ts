@@ -4,7 +4,7 @@ export interface ICandidate extends Document {
     githubUsername: string;
     fullName: string;
     yearsOfExperience: number;
-    interviewNotes: string[]; // מערך שישמור את ההתרשמות של הסוכנת
+    interviewNotes: string[];
     createdAt: Date;
     updatedAt: Date;
 }

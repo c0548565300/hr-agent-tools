@@ -7,8 +7,7 @@ import { authMiddleware } from './src/middlewares/auth.middleware.js';
 
 const app = express();
 
-// --- תשתית גלובלית ---
-app.use(cors()); // חובה כדי לאפשר ל-Frontend לגשת לשרת
+app.use(cors()); 
 app.use(express.json());
 
 

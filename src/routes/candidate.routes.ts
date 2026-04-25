@@ -5,8 +5,6 @@ import { saveCandidateSchema } from '../validators/candidate.validator.js';
 
 const router = Router();
 
-// נתיב מסוג POST לשמירת מועמד חדש
-// הראוטר קודם יעביר את הבקשה ל-validate, ורק אם הכל תקין ימשיך ל-Controller
 router.post(
   '/',
   validate(saveCandidateSchema),

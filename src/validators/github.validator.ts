@@ -8,7 +8,7 @@ export const githubProfileSchema = z.object({
           ? "Username parameter is required"
           : "Username must be a valid string",
     })
-    .min(1, { message: "Username cannot be empty" }) // גם כאן החזרנו ל-message במקום error עבור min/max
+    .min(1, { message: "Username cannot be empty" })
     .max(39, { message: "Github username cannot exceed 39 characters" })
     .regex(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i, { message: "Invalid Github username format" })
   })

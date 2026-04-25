@@ -1,13 +1,10 @@
 steps:
-  # שלב 1: בניית האימג' של הדוקר (Build)
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/hr-api-image', '.']
 
-  # שלב 2: העלאת האימג' ל-Registry של גוגל קלאוד (Push)
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/hr-api-image']
 
-  # שלב 3: פריסת האימג' ל-Cloud Run (Deploy)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:

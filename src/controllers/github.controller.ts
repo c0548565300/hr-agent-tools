@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { GithubService } from '../services/github.service.js';
+import { getCandidateSummary } from '../services/github.service.js';
 
 export class GithubController {
 
@@ -8,7 +8,7 @@ export class GithubController {
 
             const username = req.params.username as string;
 
-            const summary = await GithubService.getCandidateSummary(username);
+            const summary = await getCandidateSummary(username);
 
             res.status(200).json({
                 success: true,

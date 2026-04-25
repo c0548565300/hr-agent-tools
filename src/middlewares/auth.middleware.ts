@@ -4,7 +4,6 @@ import { verifyFirebaseIdToken } from "../services/firebase.service.js";
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
 
-  // בדיקה שה-Header קיים ובפורמט הנכון לפי הסטנדרט (Bearer TOKEN)
   if (!authHeader?.startsWith("Bearer ")) {
     return res.status(401).json({ 
       success: false, 
@@ -16,11 +15,10 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
 
   try {
     const decodedUser = await verifyFirebaseIdToken(token);
+     
+    req.user = decodedUser;
     
-    // הזרקת המשתמש המאומת לאובייקט ה-Request
-    (req as any).user = decodedUser;
-    
-    next(); // מעבר לנתיב המבוקש
+    next(); 
   } catch (error) {
     res.status(401).json({ 
       success: false, 
