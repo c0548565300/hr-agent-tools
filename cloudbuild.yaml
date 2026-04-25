@@ -20,6 +20,8 @@ steps:
       - '--allow-unauthenticated'
       - '--port'
       - '8080'
+      - '--set-env-vars'
+      - 'MONGODB_URI=${_MONGODB_URI}'
 
 options:
   logging: CLOUD_LOGGING_ONLY
