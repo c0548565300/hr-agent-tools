@@ -3,18 +3,14 @@ import app from './app.js';
 import { connectDB } from './src/config/database.js';
 
 const PORT = Number(process.env.PORT || 3000);
-
+ const server = app.listen(PORT, '0.0.0.0', () => {
+      console.log(` Server is live and listening on port ${PORT}`);
+    });
 const startServer = async () => {
   try {
    
     
     await connectDB();
-    
-
-    
-    const server = app.listen(PORT, '0.0.0.0', () => {
-      console.log(` Server is live and listening on port ${PORT}`);
-    });
 
     const shutdown = (signal: string) => {
       console.log(`\n${signal} received. Starting graceful shutdown...`);
